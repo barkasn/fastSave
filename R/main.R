@@ -1,3 +1,17 @@
+
+#' Save R Object using parallel compression
+#' @description save writes an external representation of R objects to the specified file.
+#' The objects can be read back from the file at a later date
+#' by using the function load or attach (or data in some cases).
+#' @param ... the names of the objects to be saved (as symbols or character strings).
+#' @param list A character vector containing the names of objects to be saved.
+#' @param file the name of the file where data will be saved
+#' @param envir environment to search for objects to be saved.
+#' @param n.cores number of cores to use to compress
+#' @param eval.promises logical: should objects which are promises be forced before saving?
+#' @param precheck logical: should the existence of the objects be checked before starting to
+#' save (and in particular before opening the file/connection)?
+#' @export save.fast
 save.fast <- function (...,
                        list = character(),
                        file = stop("'file' must be specified"),
@@ -48,11 +62,17 @@ save.fast <- function (...,
                        eval.promises))
 }
 
+#' Save the current workspace
+#' @description save.image.fast () is just a short-cut for ‘save my current workspace’,
+#' i.e., save.fast(list = ls(all.names = TRUE), file = ".RData", envir = .GlobalEnv).
+#' @param file the name of the file where data will be saved
+#' @param n.cores number of cores to use to compress
+#' @param safe logical. If TRUE, a temporary file is used for creating the saved workspace.
+#' The temporary file is renamed to file if the save succeeds. This preserves an existing
+#' workspace file if the save fails, but at the cost of using extra disk space during the save.
 #' @export save.image.fast
 save.image.fast <-
   function(file = ".RData",
-           version = NULL,
-           verbose = FALSE,
            n.cores = 2,
            safe = TRUE) {
     ## Check arguments
