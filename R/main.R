@@ -22,7 +22,7 @@ save.fast <- function (...,
 {
   if (.Platform$OS.type == "unix") {
     if (system(
-      'command -v lbzip2',
+      'command -v pigz',
       wait = T,
       ignore.stdout = TRUE,
       ignore.stderr = TRUE
