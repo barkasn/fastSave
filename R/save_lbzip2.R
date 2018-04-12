@@ -6,7 +6,7 @@
 #' Files generated with this function can be loaded with load.lbzip2()
 #' @param ... the names of the objects to be saved (as symbols or character strings).
 #' @param list A character vector containing the names of objects to be saved.
-#' @param file the name of the file where data will be saved
+#' @param file the name of the file where data will be saved, the recommended suffix is .RDataFS
 #' @param envir environment to search for objects to be saved.
 #' @param n.cores number of cores to use to compress
 #' @param eval.promises logical: should objects which are promises be forced before saving?
@@ -52,9 +52,9 @@ save.lbzip2 <- function (...,
       ), domain = NA)
     }
   }
-  on.exit(close(con))
   n.cores.arg <- paste0(' -n ', n.cores)
   con <- pipe(paste0('lbzip2 ', n.cores.arg, ' > ', file))
+  on.exit(close(con))
   .Internal(saveToConn(list,
                        con,
                        FALSE, # ascii,
@@ -75,7 +75,7 @@ save.lbzip2 <- function (...,
 #' workspace file if the save fails, but at the cost of using extra disk space during the save.
 #' @export save.image.lbzip2
 save.image.lbzip2 <-
-  function(file = ".RData",
+  function(file = ".RDataFS",
            n.cores = 4,
            safe = TRUE) {
     ## Check arguments

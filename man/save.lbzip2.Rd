@@ -13,7 +13,7 @@ save.lbzip2(..., list = character(),
 
 \item{list}{A character vector containing the names of objects to be saved.}
 
-\item{file}{the name of the file where data will be saved}
+\item{file}{the name of the file where data will be saved, the recommended suffix is .RDataFS}
 
 \item{envir}{environment to search for objects to be saved.}
 

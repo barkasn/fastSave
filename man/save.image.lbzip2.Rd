@@ -4,7 +4,7 @@
 \alias{save.image.lbzip2}
 \title{Save the current workspace with lbzip2 compression}
 \usage{
-save.image.lbzip2(file = ".RData", n.cores = 4, safe = TRUE)
+save.image.lbzip2(file = ".RDataFS", n.cores = 4, safe = TRUE)
 }
 \arguments{
 \item{file}{the name of the file where data will be saved}
