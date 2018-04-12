@@ -16,7 +16,7 @@ save.fast <- function (...,
                        list = character(),
                        file = stop("'file' must be specified"),
                        envir = parent.frame(),
-                       n.cores = 2,
+                       n.cores = 4,
                        eval.promises = TRUE,
                        precheck = TRUE)
 {
@@ -73,7 +73,7 @@ save.fast <- function (...,
 #' @export save.image.fast
 save.image.fast <-
   function(file = ".RData",
-           n.cores = 2,
+           n.cores = 4,
            safe = TRUE) {
     ## Check arguments
     if (is.null(file)) {
