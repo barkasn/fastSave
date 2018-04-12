@@ -5,7 +5,7 @@ Version: 0.1.0
 Authors@R: c(person("Nikolas", "Barkas", role = c("aut","cre"),
                      email = "Nikolaos_Barkas@hms.harvard.edu"))
 Author: Nikolas Barkas [aut, cre]
-Description: As the scale of the data that is processed with R increases so
+Description: Save your R sessions faster! As the scale of the data that is processed with R increases so
    does time to save sessions to disks. This package allows taking advantage of 
    parallel compression to reduce saving times.
 License: GPL (>= 2)
