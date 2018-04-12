@@ -25,3 +25,18 @@ To install fastSave, open R and run:
 library(devtools)
 install_github('barkasn/fastSave')
 ```
+## Use
+To use fast save simply load the package and replace your calls to save() and save.image() with save.fast() and save.image.fast().
+```R
+library(fastSave)
+x <- 5
+save.image.fast()
+save.fast(x)
+```
+
+You can optionally specify the number of cores to use with the n.cores argument:
+```R
+library(fastSave)
+x <- 5
+save.image.fast(n.cores = 8)
+```
