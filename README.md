@@ -11,3 +11,17 @@ As the scale of the data that is processed with R increases so
 
 Benchmarks were performed on a dual  Intel(R) Xeon(R) E5620  @ 2.40GHz system with 32 GB or RAM. 
 The code to run the benchmarks on your system can be found in inst/benchmarks.R
+
+# Installation
+fastSave only works on unix systems and requires the 'pigz' to be installed. On ubuntu you can install 'pigz' with 
+
+```sh
+sudo apt-get install pigz
+```
+
+To install fastSave, open R and run:
+
+```R
+library(devtools)
+install_github('barkasn/fastSave')
+```
