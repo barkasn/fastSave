@@ -112,6 +112,8 @@ save.image.lbzip2 <-
 
 #' Reload Datasets saved with lbzip2
 #' @description Reload datasets written with the function save.lbzip2
+#' @param envir the environment where the data should be loaded.
+#' @param verbose should item names be printed during loading?
 #' @export load.lbzip2
 load.lbzip2 <- function (file, envir = parent.frame(), verbose = FALSE, n.cores = 4)
 {
@@ -121,19 +123,19 @@ load.lbzip2 <- function (file, envir = parent.frame(), verbose = FALSE, n.cores 
     stop("bad 'file' argument")
   if (.Platform$OS.type == "unix") {
     if (system(
-      'command -v lbzip2',
+      'command -v lbunzip2',
       wait = T,
       ignore.stdout = TRUE,
       ignore.stderr = TRUE
     ) > 0) {
-      stop('The lbzip2 command is not available on this system!')
+      stop('The lbunzip2 command is not available on this system!')
     }
   } else {
     stop('Platform is not a unix system!')
   }
 
   n.cores.arg <- paste0(' -n ', n.cores)
-  con <- pipe(paste0('lbzip2 ', n.cores.arg, ' ', file))
+  con <- pipe(paste0('lbunzip2 -c ', n.cores.arg, ' ', file))
   on.exit(close(con))
 
   magic <- readChar(con, 5L, useBytes = TRUE)
