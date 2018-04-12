@@ -1,11 +1,13 @@
 Package: fastSave
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Save R objects faster
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Authors@R: c(person("Nikolas", "Barkas", role = c("aut","cre"),
+                     email = "Nikolaos_Barkas@hms.harvard.edu"))
+Author: Nikolas Barkas [aut, cre]
+Description: As the scale of the data that is processed with R increases so
+   does time to save sessions to disks. This package allows taking advantage of 
+   parallel compression to reduce saving times.
+License: GPL (>= 2)
 Encoding: UTF-8
 LazyData: true
