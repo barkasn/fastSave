@@ -65,6 +65,7 @@ save.fast <- function (...,
 #' Save the current workspace
 #' @description save.image.fast () is just a short-cut for ‘save my current workspace’,
 #' i.e., save.fast(list = ls(all.names = TRUE), file = ".RData", envir = .GlobalEnv).
+#' Files generated with this function can be loaded with core load() function
 #' @param file the name of the file where data will be saved
 #' @param n.cores number of cores to use to compress
 #' @param safe logical. If TRUE, a temporary file is used for creating the saved workspace.
