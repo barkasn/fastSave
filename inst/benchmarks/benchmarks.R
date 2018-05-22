@@ -2,7 +2,7 @@
 
 library(tibble)
 library(tidyverse)
-
+library(fastSave)
 
 getSavingTime <- function(data.size,n.cores) {
  #a <- runif(data.size)
@@ -30,20 +30,21 @@ testSavingTime <- function(settle.time = 0.2, nrep=2, data.start = 0.1, data.end
 }
 
 ## fast test
-fast.test.results <- testSavingTime(settle.time = 0.1, nrep = 1, data.start = 0.1, data.end = 0.6, data.step = 0.2,
-                               n.core.start = 2, n.core.end = 6, n.core.step = 1)
-saveRDS(fast.test.results, 'data/fast.test.results.RData')
+fast.test.results <- testSavingTime(settle.time = 0.1, nrep = 1, data.start = 0.1, data.end = 0.6, data.step = 0.2, n.core.start = 1, n.core.end = 24, n.core.step = 1)
+
+saveRDS(fast.test.results, 'results/fast.test.results.RData')
 
 
-### Plotting Fast test
-library(ggplot2)
-ggplot(fast.test.results, aes(x=data.size,y=time,color=factor(n.cores))) +  geom_point()
-ggplot(fast.test.results, aes(color=factor(data.size),y=time,x=n.cores)) +  geom_point()
+## ### Plotting Fast test
+## library(ggplot2)
+## ggplot(fast.test.results, aes(x=data.size,y=time,color=factor(n.cores))) +  geom_point()
+## ggplot(fast.test.results, aes(color=factor(data.size),y=time,x=n.cores)) +  geom_point()
 
 ## slow test
-slow.test.results <- testSavingTime(settle.time = 5, nrep = 5, data.start = 0.5, data.end = 5.0, data.step = 0.5,
-                                    n.core.start = 1, n.core.end = 8, n.core.step = 1)
-saveRDS(slow.test.results, 'data/slow.test.results.RData')
+slow.test.results <- testSavingTime(settle.time = 5, nrep = 3, data.start = 1.0, data.end = 10.0, data.step = 1.0,
+                                    n.core.start = 1, n.core.end = 24, n.core.step = 1)
+
+saveRDS(slow.test.results, 'results/slow.test.results.RData')
 
 ## Plotting slow test
 ggplot(slow.test.results, aes(x=data.size,y=time,color=factor(n.cores))) +  geom_point()
