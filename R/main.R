@@ -268,11 +268,11 @@ load.lbzip2 <- function (file, envir = parent.frame(), verbose = FALSE, n.cores 
 #' Save the session in the current working directory with a file name that
 #' includes the time stamp and process id
 #' @param prefix the prefix to use,for the filename
-#' @param compression type of file to save 'gz','lbzip2'
+#' @param compression type of file to save 'gz' or 'lbzip2', default: lbzip2
 #' @param n.cores number of cores for save.image.fast or save.image.lbzip2, default = 4
 #' @return the name of the file that was saved in
 #' @export preserve.state
-preserve.state <- function(prefix='savepoint_', compression='gz', n.cores=4) {
+preserve.state <- function(prefix='savepoint_', compression='lbzip', n.cores=4) {
     if(compression == 'gz') {
         file <- paste0(prefix,gsub(' ','_',Sys.time()),'_',Sys.getpid(),'.RData')
         save.image.fast(file)
