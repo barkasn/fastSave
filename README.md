@@ -5,7 +5,7 @@ As the scale of the data that is processed with R increases so
    parallel compression to reduce saving times.
    
 # Benchmarks
-## Performance comparison against built in single-core save
+## Performance comparison against built-in single-core save
 <img src="vignettes/figures/method.vs.savetime.png" width="500px" />
 
 ## 3D comparison of gzip and lbzip2 algorithms
@@ -57,10 +57,13 @@ load("x.RData")
 ```
 
 ```R
-## Alternatively you can use the .lbzip2 functions. These produce files that are
-## not compatible with the built in R functions but allow parallel loading.
+## Alternatively you can use the .lbzip2 functions. These produce files that may
+## not be compatible with the built in R functions but allow parallel loading.
 ## Note that saving with the lbzip2 functions takes slightly longer that
 ## with the functions above, but loading time is dramatically shorter.
+
+## These functions are recommended unless you need to keep compatibility with 
+## users of built-in save.
 
 ## The use of the suffix .RDataFS is recommened for these files
 ## By default saves into files ".RDataFS"
