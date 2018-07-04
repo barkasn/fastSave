@@ -6,6 +6,7 @@ As the scale of the data that is processed with R increases so
    
 # Benchmarks
 <img src="vignettes/figures/method.vs.savetime.png" width="500px">
+<img src="vignettes/figures/3dperformance.png" width="500px">
 
 Benchmarks were performed on a dual Intel(R) Xeon(R) E5670  @ 2.93GHz system with 48 GB or RAM. 
 The code to run the benchmarks on your system can be found in inst/benchmarks.R
