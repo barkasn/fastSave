@@ -10,7 +10,7 @@ As the scale of the data that is processed with R increases so
 
 ## 3D comparison of gzip and lbzip2 algorithms
 <img src="vignettes/figures/3dperformance.png" width="600px" />
-<a href="https://raw.githubusercontent.com/barkasn/fastSave/master/vignettes/plotly/fastSave3d.html">right-click to download interactive plot</a>
+<a href="https://raw.githubusercontent.com/barkasn/fastSave/master/vignettes/plotly/fastSave3d.html">Right-click and select 'Save link as...' to download interactive plot</a>
 
 Benchmarks were performed on a dual Intel(R) Xeon(R) E5670  @ 2.93GHz system with 48 GB or RAM. 
 The code to run the benchmarks on your system can be found in inst/benchmarks.R
