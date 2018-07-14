@@ -272,7 +272,7 @@ load.lbzip2 <- function (file, envir = parent.frame(), verbose = FALSE, n.cores 
 #' @param n.cores number of cores for save.image.fast or save.image.lbzip2, default = 4
 #' @return the name of the file that was saved in
 #' @export preserve.state
-preserve.state <- function(prefix='savepoint_', compression='lbzip', n.cores=4) {
+preserve.state <- function(prefix='savepoint_', compression='lbzip2', n.cores=4) {
     if(compression == 'gz') {
         file <- paste0(prefix,gsub(' ','_',Sys.time()),'_',Sys.getpid(),'.RData')
         save.image.fast(file)
