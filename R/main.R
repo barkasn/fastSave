@@ -275,10 +275,10 @@ load.lbzip2 <- function (file, envir = parent.frame(), verbose = FALSE, n.cores 
 preserve.state <- function(prefix='savepoint_', compression='lbzip2', n.cores=4) {
     if(compression == 'gz') {
         file <- paste0(prefix,gsub(' ','_',Sys.time()),'_',Sys.getpid(),'.RData')
-        save.image.fast(file)
+        save.image.fast(file, n.cores=n.cores)
     } else if (compression == 'lbzip2') {
         file <- paste0(prefix,gsub(' ','_',Sys.time()),'_',Sys.getpid(),'.RDataFS')
-        save.image.lbzip2(file)
+        save.image.lbzip2(file, n.cores=n.cores)
     } else {
         stop(paste0('Unknown compression method: ', compression));
     }

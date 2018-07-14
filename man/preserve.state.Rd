@@ -5,12 +5,12 @@
 \title{Save the session in the current working directory with a file name that
 includes the time stamp and process id}
 \usage{
-preserve.state(prefix = "savepoint_", compression = "gz", n.cores = 4)
+preserve.state(prefix = "savepoint_", compression = "lbzip2", n.cores = 4)
 }
 \arguments{
 \item{prefix}{the prefix to use,for the filename}
 
-\item{compression}{type of file to save 'gz','lbzip2'}
+\item{compression}{type of file to save 'gz' or 'lbzip2', default: lbzip2}
 
 \item{n.cores}{number of cores for save.image.fast or save.image.lbzip2, default = 4}
 }
