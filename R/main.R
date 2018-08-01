@@ -284,4 +284,15 @@ preserve.state <- function(prefix='savepoint_', compression='lbzip2', n.cores=4)
     }
     file
 }
- 
+
+#' Reload Datasets saved with lbzip2 and return it as a environment
+#' @param ... parameters for load.lbzip2()
+#' @return environment with the contents of the saved session
+#' @export load.lbzip2.e
+load.lbzip2.e <- function(...) {
+  e <- new.env()
+  load.lbzip2(..., envir=e)
+  e
+}
+
+
