@@ -1,5 +1,26 @@
+#' Wrapper for save.lbzip2
+#' @param ... parameters for save.lbzip2
+#' @export save.fast
+save.fast <- function(...) {
+  save.lbzip2(...)
+}
 
-#' Save R Object using parallel compression
+#' Wrapper for load.lbzip2
+#' @param ... parameters for load.lbzip2
+#' @export load.fast
+load.fast <- function(...) {
+  load.lbzip2(...)
+}
+
+#' Load R Objects saved with pigz compression
+#' @description This function is an alias for the internal load function
+#' as files saved with pigz are compatible with it
+#' @export load.pigz
+load.pigz <- function(...) {
+  load(...)
+}
+
+#' Save R Object using pigz compression
 #' @description save writes an external representation of R objects to the specified file.
 #' The objects can be read back from the file at a later date
 #' by using the function load or attach (or data in some cases).
@@ -11,8 +32,8 @@
 #' @param eval.promises logical: should objects which are promises be forced before saving?
 #' @param precheck logical: should the existence of the objects be checked before starting to
 #' save (and in particular before opening the file/connection)?
-#' @export save.fast
-save.fast <- function (...,
+#' @export save.pigz
+save.pigz <- function (...,
                        list = character(),
                        file = stop("'file' must be specified"),
                        envir = parent.frame(),
@@ -63,7 +84,7 @@ save.fast <- function (...,
 }
 
 #' Save the current workspace
-#' @description save.image.fast () is just a short-cut for ‘save my current workspace’,
+#' @description just a short-cut for ‘save my current workspace’,
 #' i.e., save.fast(list = ls(all.names = TRUE), file = ".RData", envir = .GlobalEnv).
 #' Files generated with this function can be loaded with core load() function
 #' @param file the name of the file where data will be saved
@@ -71,8 +92,8 @@ save.fast <- function (...,
 #' @param safe logical. If TRUE, a temporary file is used for creating the saved workspace.
 #' The temporary file is renamed to file if the save succeeds. This preserves an existing
 #' workspace file if the save fails, but at the cost of using extra disk space during the save.
-#' @export save.image.fast
-save.image.fast <-
+#' @export save.image.pigz
+save.image.pigz <-
   function(file = ".RData",
            n.cores = 4,
            safe = TRUE) {
@@ -275,7 +296,7 @@ load.lbzip2 <- function (file, envir = parent.frame(), verbose = FALSE, n.cores 
 preserve.state <- function(prefix='savepoint_', compression='lbzip2', n.cores=4) {
     if(compression == 'gz') {
         file <- paste0(prefix,gsub(' ','_',Sys.time()),'_',Sys.getpid(),'.RData')
-        save.image.fast(file, n.cores=n.cores)
+        save.image.pigz(file, n.cores=n.cores)
     } else if (compression == 'lbzip2') {
         file <- paste0(prefix,gsub(' ','_',Sys.time()),'_',Sys.getpid(),'.RDataFS')
         save.image.lbzip2(file, n.cores=n.cores)
@@ -295,4 +316,12 @@ load.lbzip2.e <- function(...) {
   e
 }
 
-
+#' Load R Objects saved with pigz compression
+#' @description This function is an alias for the internal load function
+#' as files saved with pigz are compatible with it
+#' @export load.pigz
+load.pigz.e <- function(...) {
+  e <- new.env()
+  load(..., envir=e)
+  e
+}
