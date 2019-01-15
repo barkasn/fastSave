@@ -362,10 +362,9 @@ readRDS.lbzip2 <- function(file, refhook = NULL, n.cores = 4 ) {
 saveRDS.pigz <- function(object, file = "", refhook = NULL, n.cores = 4) {
     if (inherits(file, "connection"))
         stop("'file' must be a filename")
-    con <-  pipe(paste0('pigz -processes ',n.cores,' > ',file))
+    con <-  pipe(paste0('pigz --processes ',n.cores,' > ',file))
     on.exit(close(con))
     saveRDS(object = object, file = con, ascii = FALSE, version = NULL, refhook = refhook)
-    close(con)
 }
 
 #' Save a single R object in RDS format that is compressed with pigz
