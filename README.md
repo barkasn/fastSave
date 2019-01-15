@@ -46,6 +46,11 @@ fastSave provides the following  functions:
 * save.fast()
 * load.fast()
 
+* saveRDS.lbzip2()
+* readRDS.lbzip2()
+
+* saveRDS.pigz()
+* readRDS.pigz()
 
 save.pigz() and save.image.fast() produce files compatible with the standard load() function.  The save.lbzip2() and save.image.lbzip2() functions produce files that can be loaded with load.lbzip2(). Their advantage is that they allow the load operation to be parallelized as well.
 
