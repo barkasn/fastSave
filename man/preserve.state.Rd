@@ -5,7 +5,8 @@
 \title{Save the session in the current working directory with a file name that
 includes the time stamp and process id}
 \usage{
-preserve.state(prefix = "savepoint_", compression = "lbzip2", n.cores = 4)
+preserve.state(prefix = "savepoint_", compression = "lbzip2",
+  n.cores = 4)
 }
 \arguments{
 \item{prefix}{the prefix to use,for the filename}

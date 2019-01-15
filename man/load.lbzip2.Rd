@@ -4,7 +4,8 @@
 \alias{load.lbzip2}
 \title{Reload Datasets saved with lbzip2}
 \usage{
-load.lbzip2(file, envir = parent.frame(), verbose = FALSE, n.cores = 4)
+load.lbzip2(file, envir = parent.frame(), verbose = FALSE,
+  n.cores = 4)
 }
 \arguments{
 \item{envir}{the environment where the data should be loaded.}
