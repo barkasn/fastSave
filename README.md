@@ -1,5 +1,7 @@
 # fastSave: Save your R sessions faster!
 
+[![Travis build status](https://travis-ci.org/barkasn/fastSave.svg?branch=master)](https://travis-ci.org/barkasn/fastSave)
+
 As the scale of the data that is processed with R increases so
    does time to save sessions to disks. This package allows taking advantage of 
    parallel compression to reduce saving times.
