@@ -353,8 +353,6 @@ readRDS.lbzip2 <- function(file, refhook = NULL, n.cores = 4 ) {
     readRDS(con, refhook = refhook)
 }
 
-
-
 #' Save a single R object in RDS format compressed with lbzip2
 #' @param object R object to serialize
 #' @param file name of the file to save
@@ -368,4 +366,13 @@ saveRDS.pigz <- function(object, file = "", refhook = NULL, n.cores = 4) {
     on.exit(close(con))
     saveRDS(object = object, file = con, ascii = FALSE, version = NULL, refhook = refhook)
     close(con)
+}
+
+#' Save a single R object in RDS format that is compressed with pigz
+#' @description this function delegates to the built in readRDS and is
+#' provided for naming consistency
+#' @param ... parameters passed to readRDS
+#' @export readRDS.pigz
+readRDS.pigz <- function(...) {
+    readRDS(...)
 }
