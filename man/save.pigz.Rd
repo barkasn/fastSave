@@ -4,9 +4,9 @@
 \alias{save.pigz}
 \title{Save R Object using pigz compression}
 \usage{
-save.pigz(..., list = character(), file = stop("'file' must be specified"),
-  envir = parent.frame(), n.cores = 4, eval.promises = TRUE,
-  precheck = TRUE)
+save.pigz(..., list = character(),
+  file = stop("'file' must be specified"), envir = parent.frame(),
+  n.cores = 4, eval.promises = TRUE, precheck = TRUE)
 }
 \arguments{
 \item{...}{the names of the objects to be saved (as symbols or character strings).}

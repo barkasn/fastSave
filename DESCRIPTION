@@ -11,4 +11,4 @@ Description: Save your R sessions faster! As the scale of the data that is proce
 License: GPL (>= 2)
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.1
