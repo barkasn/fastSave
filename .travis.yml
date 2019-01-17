@@ -8,4 +8,4 @@ addons:
   apt:
     packages:
       - pigz
-      - libzip2
+      - lbzip2
