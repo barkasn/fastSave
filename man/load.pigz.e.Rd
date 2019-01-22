@@ -6,6 +6,9 @@
 \usage{
 load.pigz.e(...)
 }
+\arguments{
+\item{...}{parameters for load}
+}
 \description{
 This function is an alias for the internal load function
 as files saved with pigz are compatible with it

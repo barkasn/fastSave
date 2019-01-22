@@ -325,6 +325,7 @@ load.lbzip2.e <- function(...) {
 #' Load R Objects saved with pigz compression
 #' @description This function is an alias for the internal load function
 #' as files saved with pigz are compatible with it
+#' @param ... parameters for load
 #' @export load.pigz
 load.pigz.e <- function(...) {
   e <- new.env()
