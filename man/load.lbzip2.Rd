@@ -8,9 +8,13 @@ load.lbzip2(file, envir = parent.frame(), verbose = FALSE,
   n.cores = 4)
 }
 \arguments{
+\item{file}{filename to save to}
+
 \item{envir}{the environment where the data should be loaded.}
 
 \item{verbose}{should item names be printed during loading?}
+
+\item{n.cores}{number of cores to use}
 }
 \description{
 Reload datasets written with the function save.lbzip2

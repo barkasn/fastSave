@@ -15,6 +15,7 @@ load.fast <- function(...) {
 #' Load R Objects saved with pigz compression
 #' @description This function is an alias for the internal load function
 #' as files saved with pigz are compatible with it
+#' @param ... parameters for load
 #' @export load.pigz
 load.pigz <- function(...) {
   load(...)
@@ -243,8 +244,10 @@ save.image.lbzip2 <-
 
 #' Reload Datasets saved with lbzip2
 #' @description Reload datasets written with the function save.lbzip2
+#' @param file filename to save to
 #' @param envir the environment where the data should be loaded.
 #' @param verbose should item names be printed during loading?
+#' @param n.cores number of cores to use
 #' @export load.lbzip2
 load.lbzip2 <- function (file, envir = parent.frame(), verbose = FALSE, n.cores = 4)
 {
@@ -293,6 +296,9 @@ load.lbzip2 <- function (file, envir = parent.frame(), verbose = FALSE, n.cores 
 #' @param n.cores number of cores for save.image.fast or save.image.lbzip2, default = 4
 #' @return the name of the file that was saved in
 #' @export preserve.state
+#' @examples
+#' a <- 12345
+#' preserve.state()
 preserve.state <- function(prefix='savepoint_', compression='lbzip2', n.cores=4) {
     if(compression == 'gz') {
         file <- paste0(prefix,gsub(' ','_',Sys.time()),'_',Sys.getpid(),'.RData')

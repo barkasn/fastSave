@@ -22,3 +22,7 @@ the name of the file that was saved in
 Save the session in the current working directory with a file name that
 includes the time stamp and process id
 }
+\examples{
+a <- 12345
+preserve.state()
+}
