@@ -1,0 +1,2 @@
+library('fastSave')
+test_that("I can get a test working", expect_equal(1,1))
