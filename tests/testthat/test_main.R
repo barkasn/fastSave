@@ -9,9 +9,9 @@ check_lbzip2_save_restore <- function() {
     rm(data_copy)
     load.lbzip2(filename)
     unlist(filename)
-    all(data_copy == data_orig)
+    expect_equal(all(data_copy == data_orig),TRUE)
 }
 
     
-test_that("can save and restore objects with lbzip2 functions")
+test_that("can save and restore objects with lbzip2 functions", {check_lbzip2_save_restore()})
 
