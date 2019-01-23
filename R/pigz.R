@@ -2,10 +2,12 @@
 #' Load R Objects saved with pigz compression
 #' @description This function is an alias for the internal load function
 #' as files saved with pigz are compatible with it
-#' @param ... parameters for load
+#' @param file the name of the file where data will be saved
+#' @param envir the environment where the data will be loaded
+#' @param verbose verbosity
 #' @export load.pigz
-load.pigz <- function(...) {
-  load(...)
+load.pigz <- function(file, envir=parent.frame(), verbose=FALSE) {
+  load(file, envir=envir, verbose=verbose)
 }
 
 

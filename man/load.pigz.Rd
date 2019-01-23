@@ -4,10 +4,14 @@
 \alias{load.pigz}
 \title{Load R Objects saved with pigz compression}
 \usage{
-load.pigz(...)
+load.pigz(file, envir = parent.frame(), verbose = FALSE)
 }
 \arguments{
-\item{...}{parameters for load}
+\item{file}{the name of the file where data will be saved}
+
+\item{envir}{the environment where the data will be loaded}
+
+\item{verbose}{verbosity}
 }
 \description{
 This function is an alias for the internal load function
